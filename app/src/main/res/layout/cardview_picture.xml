@@ -9,7 +9,9 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
         <ImageView
             android:id="@+id/pictureCard"
@@ -17,6 +19,7 @@
             android:layout_height="@dimen/height_cardview"
             android:background="@drawable/image"
             android:scaleType="centerCrop"
+            android:transitionName="@string/transitionname_picture"
             />
 
         <LinearLayout
