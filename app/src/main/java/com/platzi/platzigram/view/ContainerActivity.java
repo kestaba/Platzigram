@@ -6,11 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.platzi.platzigram.R;
-import com.platzi.platzigram.view.fragment.HomeFragment;
+import com.platzi.platzigram.post.view.HomeFragment;
 import com.platzi.platzigram.view.fragment.ProfileFragment;
 import com.platzi.platzigram.view.fragment.SearchFragment;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
 public class ContainerActivity extends AppCompatActivity {
