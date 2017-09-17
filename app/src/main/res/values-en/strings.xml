@@ -16,4 +16,5 @@
     <string name="timecard_card">4 días</string>
     <string name="likenumbercard_card">10 Me Gusta</string>
     <string name="secondword_detail">Me gusta</string>
+    <string name="search_hinttext">Buscar</string>
 </resources>
