@@ -1,5 +1,7 @@
 package com.platzi.platzigram.login.presenter;
 
+import android.app.Activity;
+
 import com.platzi.platzigram.login.interactor.LoginInteractor;
 import com.platzi.platzigram.login.interactor.LoginInteractorImpl;
 import com.platzi.platzigram.login.view.LoginView;
@@ -19,11 +21,11 @@ public class LoginPresenterImpl implements LoginPresenter {
     }
 
     @Override
-    public void signIn(String username, String password){
+    public void signIn(String username, String password, Activity activity){
         loginView.disableInputs();
         loginView.showProgressBar();
 
-        interactor.signIn(username, password);
+        interactor.signIn(username, password, activity);
     }
 
     @Override

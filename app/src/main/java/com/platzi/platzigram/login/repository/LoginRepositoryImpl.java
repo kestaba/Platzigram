@@ -1,5 +1,7 @@
 package com.platzi.platzigram.login.repository;
 
+import android.app.Activity;
+
 import com.platzi.platzigram.login.presenter.LoginPresenter;
 
 /**
@@ -15,7 +17,7 @@ public class LoginRepositoryImpl implements LoginRepository {
     }
 
     @Override
-    public void signIn(String username, String password) {
+    public void signIn(String username, String password, Activity activity) {
         boolean success = true;
 
         if (success){
