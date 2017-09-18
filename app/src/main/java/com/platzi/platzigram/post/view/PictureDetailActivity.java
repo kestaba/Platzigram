@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.storage.StorageReference;
 import com.platzi.platzigram.PlatzigramApplication;
 import com.platzi.platzigram.R;
@@ -23,6 +24,7 @@ import com.squareup.picasso.Picasso;
 public class PictureDetailActivity extends AppCompatActivity {
 
     private static final String PHOTO_NAME = "JPEG_20170918_03-14-47_265057038.jpg";
+    private static final String TAG = "PictureDetailActivity";
     private ImageView imageHeader;
     private PlatzigramApplication app;
     StorageReference storageReference;
@@ -30,6 +32,7 @@ public class PictureDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseCrash.log("Iniciando " + TAG);
         setContentView(R.layout.activity_picture_detail);
 
         app = (PlatzigramApplication) getApplicationContext();
@@ -59,6 +62,7 @@ public class PictureDetailActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(PictureDetailActivity.this, "Ocurrió un error al traer la foto.", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
+                FirebaseCrash.report(e);
             }
         });
     }

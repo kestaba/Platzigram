@@ -29,6 +29,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.crash.FirebaseCrash;
 import com.platzi.platzigram.R;
 import com.platzi.platzigram.login.presenter.LoginPresenter;
 import com.platzi.platzigram.login.presenter.LoginPresenterImpl;
@@ -109,6 +110,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             public void onError(FacebookException error) {
                 Log.w(TAG, "Facebook login error: " + error.toString());
                 error.printStackTrace();
+                FirebaseCrash.report(error);
             }
         });
 
@@ -133,8 +135,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
                     goHome();
                     Toast.makeText(LoginActivity.this, "Login Facebook Exitoso", Toast.LENGTH_SHORT).show();
+                    FirebaseCrash.logcat(Log.WARN, TAG, "Login Facebook Exitoso");
                 }else{
                     Toast.makeText(LoginActivity.this, "Login Facebook NO Exitoso", Toast.LENGTH_SHORT).show();
+                    FirebaseCrash.logcat(Log.WARN, TAG, "Login Facebook NO Exitoso");
                 }
             }
         });

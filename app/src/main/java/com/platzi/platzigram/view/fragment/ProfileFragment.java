@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.platzi.platzigram.R;
 import com.platzi.platzigram.adapter.PictureAdapterRecyclerView;
 import com.platzi.platzigram.model.Picture;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 public class ProfileFragment extends Fragment {
 
 
+    private static final String TAG = "ProfileFragment";
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -32,6 +35,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        FirebaseCrash.log("Iniciando " + TAG);
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         showToolbar("", false, view);
         RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureProfileRecycler);

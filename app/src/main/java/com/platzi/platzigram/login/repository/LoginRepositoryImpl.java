@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.crash.FirebaseCrash;
 import com.platzi.platzigram.login.presenter.LoginPresenter;
 
 /**
@@ -18,6 +20,7 @@ import com.platzi.platzigram.login.presenter.LoginPresenter;
 
 public class LoginRepositoryImpl implements LoginRepository {
 
+    private static final String TAG = "LoginRepositoryImpl";
     private LoginPresenter presenter;
 
     public LoginRepositoryImpl(LoginPresenter presenter) {
@@ -40,8 +43,11 @@ public class LoginRepositoryImpl implements LoginRepository {
                             editor.putString("email", user.getEmail());
                             editor.commit();
 
+                            FirebaseCrash.logcat(Log.WARN, TAG, "Usuario logueado - " + user.getEmail());
+
                             presenter.loginSuccess();
                         }else{
+                            FirebaseCrash.logcat(Log.ERROR, TAG, "Ocurrió un error");
                             presenter.loginError("Ocurrió un error.");
                         }
                     }

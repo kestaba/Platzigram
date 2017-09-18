@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.firebase.crash.FirebaseCrash;
 import com.platzi.platzigram.R;
 import com.platzi.platzigram.adapter.PictureAdapterRecyclerView;
 import com.platzi.platzigram.model.Picture;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
  */
 public class SearchFragment extends Fragment {
 
+    private static final String TAG = "SearchFragment";
     private int numberOfColums = 2;
 
     public SearchFragment() {
@@ -31,6 +34,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        FirebaseCrash.log("Iniciando " + TAG);
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         showToolbar("", false, view);
 
