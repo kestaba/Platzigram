@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
             @Override
             public void onCancel() {
-                Log.w(TAG, "Facebook login cancelao.");
+                Log.w(TAG, "Facebook login cancelado.");
             }
 
             @Override
